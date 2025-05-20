@@ -35,8 +35,7 @@ pipeline {
         }
         stage('Build and Deploy Android') {
             steps {
-                bat 'fvm flutter build apk --flavor "${ENV}" -t lib/main_"${ENV}".dart'
-                bat 'firebase  appdistribution:distribute build/app/outputs/flutter-apk/app-"${ENV}"-release.apk  --token "${FIREBASE_TOKEN}"  --app "${FIREBASE_APP}"  --groups "${TEST_GROUP}"  --release-notes "Upload APK to Firebase"'
+                bat 'fvm flutter build apk --flavor "%ENV%" -t lib/main_%ENV%.dart'
             }
         }
         stage('Cleanup') {
