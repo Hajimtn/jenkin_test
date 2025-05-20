@@ -23,7 +23,7 @@ pipeline {
         }
         stage ('Change version') {
             steps {
-                bat '''
+                sh '''
                 sed -i '' "s/^version: .*/version: ${VERSION}/" pubspec.yaml
                 '''
             }
